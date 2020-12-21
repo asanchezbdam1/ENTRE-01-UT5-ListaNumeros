@@ -65,7 +65,6 @@ public class ListaNumeros
      */
     public int getTotalNumeros() {
         return pos;
-
     }
 
     /**
@@ -144,9 +143,8 @@ public class ListaNumeros
     public void borrarPrimero() {
         for (int i = 0; i < pos; i++) {
             lista[i] = lista[i + 1];
-            pos--;
         }
-
+        pos--;
     }
 
     /**
@@ -213,7 +211,32 @@ public class ListaNumeros
         int numero = 21;
         System.out.println(lista.toString());
         System.out.println("\t" + numero + " aparece en posiciones ");
-        // seguir completando
+        
+        System.out.println("--- borrarPrimero() y buscarBinario() -------");
+        lista.borrarPrimero();
+        System.out.println(lista.toString());
+        System.out.println(numero + lista.buscarBinario(numero));
+        
+        System.out.println("--- invertir() -------");
+        lista.invertir(3);
+        lista.escribirLista();
+        
+        System.out.println("--- estaCompleta(), escribirLista(),\n" +
+        "getTotalNumeros(), vaciar() y estaVacia() -------");
+        System.out.println("Completa: " + lista.estaCompleta());
+        System.out.println("Vacia: " + lista.estaVacia());
+        System.out.println("Numeros: " + lista.getTotalNumeros());
+        lista.escribirLista();
+        lista.vaciarLista();
+        lista.escribirLista();
+        System.out.println("Numeros: " + lista.getTotalNumeros());
+        System.out.println("Vacia: " + lista.estaVacia());
+        
+        System.out.println("--- toArray2D() -------");
+        for (int i = 0; i < valores.length; i++) {
+            lista.addElemento(valores[i]);
+        }
+        System.out.println("Numeros: " + lista.getTotalNumeros());
         int[][] test2d = lista.toArray2D();
         for (int i = 0; i < test2d.length; i++) {
             System.out.println(Arrays.toString(test2d[i]));
